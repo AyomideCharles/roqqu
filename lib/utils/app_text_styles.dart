@@ -18,4 +18,7 @@ class AppTextStyles {
 
   static final tinyText = TextStyle(
       color: AppColors.greyColor, fontSize: 12.sp, fontWeight: FontWeight.w400);
+
+  static final tinyWhiteText = GoogleFonts.encodeSans(
+      color: Colors.white, fontSize: 12.sp, fontWeight: FontWeight.w700);
 }
