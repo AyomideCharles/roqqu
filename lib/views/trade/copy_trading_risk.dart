@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:get/get.dart';
 import 'package:roqqu_task/shared_widgets/custom_app_bar.dart';
-import 'package:roqqu_task/utils/app_colors.dart';
+import 'package:roqqu_task/shared_widgets/custom_button.dart';
 import 'package:roqqu_task/utils/app_text_styles.dart';
+import 'package:roqqu_task/views/trade/copy_trading_dashboard.dart';
+import '../widgets/risk_level_card.dart';
 
 class CopyTradingRisk extends StatefulWidget {
   const CopyTradingRisk({super.key});
@@ -71,62 +73,13 @@ class _CopyTradingRiskState extends State<CopyTradingRisk> {
           ],
         ),
       ),
-    );
-  }
-}
-
-class RiskLevelCard extends StatelessWidget {
-  final String title;
-  final String description;
-  final bool isSelected;
-  final VoidCallback onTap;
-
-  const RiskLevelCard({
-    super.key,
-    required this.title,
-    required this.description,
-    required this.isSelected,
-    required this.onTap,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: onTap,
-      child: Container(
-        width: double.infinity,
-        height: 108.h,
-        padding: EdgeInsets.all(16.r),
-        decoration: BoxDecoration(
-          border: Border.all(
-            color: isSelected ? AppColors.blueColor : AppColors.borderColor,
-            width: 1.5,
-          ),
-          color: AppColors.bgColor,
-          borderRadius: BorderRadius.circular(16.r),
-        ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              title,
-              style: GoogleFonts.encodeSans(
-                fontSize: 16.sp,
-                fontWeight: FontWeight.w700,
-                color: const Color(0xFFFFFFFF),
-              ),
-            ),
-            SizedBox(height: 8.h),
-            Text(
-              description,
-              style: GoogleFonts.encodeSans(
-                fontSize: 13.sp,
-                fontWeight: FontWeight.w400,
-                color: AppColors.greyColor,
-              ),
-            ),
-          ],
-        ),
+      bottomNavigationBar: Padding(
+        padding: const EdgeInsets.all(20.0),
+        child: CustomButton(
+            text: 'Proceed',
+            onPressed: () {
+              Get.to(() => const CopyTradingDashboard());
+            }),
       ),
     );
   }
