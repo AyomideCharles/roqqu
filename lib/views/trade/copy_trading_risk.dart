@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:roqqu_task/shared_widgets/custom_app_bar.dart';
 import 'package:roqqu_task/shared_widgets/custom_button.dart';
+import 'package:roqqu_task/utils/app_colors.dart';
 import 'package:roqqu_task/utils/app_text_styles.dart';
 import 'package:roqqu_task/views/trade/copy_trading_dashboard.dart';
 import '../widgets/risk_level_card.dart';
@@ -73,7 +74,8 @@ class _CopyTradingRiskState extends State<CopyTradingRisk> {
           ],
         ),
       ),
-      bottomNavigationBar: Padding(
+      bottomNavigationBar: Container(
+        color: AppColors.bgColor,
         padding: const EdgeInsets.all(20.0),
         child: CustomButton(
             text: 'Proceed',

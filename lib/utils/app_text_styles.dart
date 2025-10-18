@@ -16,8 +16,23 @@ class AppTextStyles {
     color: const Color(0xFFFFFFFF),
   );
 
+  static final bigHeader = GoogleFonts.encodeSans(
+    fontSize: 20.sp,
+    fontWeight: FontWeight.w800,
+    color: const Color(0xFFFFFFFF),
+  );
+
+  static final regularText = TextStyle(
+    fontSize: 14.sp,
+    fontWeight: FontWeight.w400,
+    color: AppColors.greyColor,
+  );
+
   static final tinyText = TextStyle(
       color: AppColors.greyColor, fontSize: 12.sp, fontWeight: FontWeight.w400);
+
+  static final whiteTinyText = TextStyle(
+      color: Colors.white, fontSize: 12.sp, fontWeight: FontWeight.w400);
 
   static final tinyWhiteText = GoogleFonts.encodeSans(
       color: Colors.white, fontSize: 12.sp, fontWeight: FontWeight.w700);

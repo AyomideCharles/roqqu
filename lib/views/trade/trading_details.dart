@@ -158,7 +158,7 @@ class _TradingDetailsState extends State<TradingDetails>
                 Row(
                   children: [
                     Container(
-                      padding: EdgeInsets.all(2.r),
+                      padding: EdgeInsets.all(4.r),
                       decoration: BoxDecoration(
                           color: Colors.green.withOpacity(0.08),
                           borderRadius: BorderRadius.circular(4.r)),
@@ -172,7 +172,7 @@ class _TradingDetailsState extends State<TradingDetails>
                     ),
                     SizedBox(width: 10.w),
                     Container(
-                      padding: EdgeInsets.all(2.r),
+                      padding: EdgeInsets.all(4.r),
                       decoration: BoxDecoration(
                           color: const Color(0xFFF79009).withOpacity(0.08),
                           borderRadius: BorderRadius.circular(4.r)),
@@ -224,49 +224,6 @@ class _TradingDetailsState extends State<TradingDetails>
               ],
             ),
           ),
-          // Expanded(
-          //   child: Container(
-          //     decoration: BoxDecoration(
-          //       color: AppColors.bgColor,
-          //       border: Border.all(color: AppColors.borderColor, width: 1.5),
-          //     ),
-          //     child: Column(
-          //       children: [
-          //         Container(
-          //           color: AppColors.primaryColor,
-          //           child: TabBar(
-          //             controller: _tabController,
-          //             dividerColor: Colors.transparent,
-          //             indicatorColor: AppColors.blueColor,
-          //             labelColor: Colors.white,
-          //             unselectedLabelColor: AppColors.greyColor,
-          //             labelStyle: TextStyle(
-          //               fontSize: 14.sp,
-          //               fontWeight: FontWeight.w500,
-          //             ),
-          //             tabs: const [
-          //               Tab(text: 'Chart'),
-          //               Tab(text: 'Stats'),
-          //               Tab(text: 'All Trades'),
-          //               Tab(text: 'Copiers'),
-          //             ],
-          //           ),
-          //         ),
-          //         Expanded(
-          //           child: TabBarView(
-          //             controller: _tabController,
-          //             children: const [
-          //               ChartTab(),
-          //               StatsTab(),
-          //               AllTradesTab(),
-          //               CopierTab()
-          //             ],
-          //           ),
-          //         ),
-          //       ],
-          //     ),
-          //   ),
-          // )
         ]),
       ),
     );

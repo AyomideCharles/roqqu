@@ -1,10 +1,10 @@
-import 'dart:math';
 import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 import 'package:roqqu_task/utils/app_colors.dart';
 import 'package:roqqu_task/utils/app_text_styles.dart';
+import 'package:roqqu_task/views/trade/copy_trading.dart';
 
 class Trade extends StatefulWidget {
   const Trade({super.key});
@@ -14,21 +14,27 @@ class Trade extends StatefulWidget {
 }
 
 class _TradeState extends State<Trade> {
-  final List<String> tradeOptions = [
-    'Buy',
-    'Sell',
-    'Swap',
-    'Send',
-    'Receive',
-    'Invest'
+  final List<Map<String, dynamic>> tradeOptions = [
+    {'title': 'Buy'},
+    {'title': 'Sell'},
+    {'title': 'Swap'},
+    {'title': 'Send'},
+    {'title': 'Receive'},
+    {'title': 'Invest', 'isNew': true},
   ];
 
-  final List<String> earnOptions = [
-    'Roqq n roll',
-    'Savings',
-    'Savings',
-    'Mission',
-    'Copy trading',
+  final List<Map<String, dynamic>> earnOptions = [
+    {'title': 'Roqq n roll', 'isNew': true},
+    {'title': 'Savings'},
+    {'title': 'Savings'},
+    {'title': 'Missions', 'isNew': true},
+    {
+      'title': 'Copy trading',
+      'isNew': true,
+      'onTap': () {
+        Get.to(() => const CopyTrading());
+      }
+    },
   ];
   @override
   Widget build(BuildContext context) {
@@ -58,22 +64,6 @@ class _TradeState extends State<Trade> {
                 Padding(
                   padding:
                       EdgeInsets.symmetric(horizontal: 16.w, vertical: 45.h),
-                  // child: Row(
-                  //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  //   children: [
-                  //     const Text('Crypto'),
-                  //     Row(
-                  //       children: [
-                  //         Image.asset('assets/icons/search.png'),
-                  //         SizedBox(width: 15.w),
-                  //         Image.asset('assets/icons/headphones.png'),
-                  //         SizedBox(width: 15.w),
-                  //         Image.asset('assets/icons/notification.png'),
-                  //         SizedBox(width: 15.w),
-                  //       ],
-                  //     )
-                  //   ],
-                  // ),
                 ),
                 Expanded(
                   child: Stack(
@@ -132,6 +122,9 @@ class _TradeState extends State<Trade> {
                                 Container(
                                   padding: EdgeInsets.all(16.r),
                                   decoration: BoxDecoration(
+                                    border: Border.all(
+                                        color: AppColors.borderColor,
+                                        width: 1.5),
                                     color: AppColors.bgColor,
                                     borderRadius: BorderRadius.circular(16.r),
                                   ),
@@ -146,16 +139,46 @@ class _TradeState extends State<Trade> {
                                             leading: Image.asset(
                                                 'assets/icons/trade.png'),
                                             title: Text(
-                                              option,
+                                              option['title'],
                                               style: TextStyle(
                                                 color: Colors.white,
                                                 fontWeight: FontWeight.w400,
                                                 fontSize: 14.sp,
                                               ),
                                             ),
-                                            trailing: const Icon(
-                                                Icons.navigate_next,
-                                                color: Colors.white),
+                                            trailing: Row(
+                                              mainAxisSize: MainAxisSize.min,
+                                              children: [
+                                                if (option['isNew'] == true)
+                                                  Container(
+                                                    padding:
+                                                        EdgeInsets.symmetric(
+                                                            horizontal: 8.w,
+                                                            vertical: 4.h),
+                                                    decoration: BoxDecoration(
+                                                      color: const Color(
+                                                              0xFFDE9B09)
+                                                          .withOpacity(0.08),
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              8.r),
+                                                    ),
+                                                    child: Text(
+                                                      'New',
+                                                      style: TextStyle(
+                                                        color: const Color(
+                                                            0xFFF79009),
+                                                        fontSize: 10.sp,
+                                                        fontWeight:
+                                                            FontWeight.w700,
+                                                      ),
+                                                    ),
+                                                  ),
+                                                SizedBox(width: 8.w),
+                                                const Icon(Icons.navigate_next,
+                                                    color: Colors.white),
+                                              ],
+                                            ),
                                           ),
                                           if (index != tradeOptions.length - 1)
                                             Divider(
@@ -181,6 +204,9 @@ class _TradeState extends State<Trade> {
                                 Container(
                                   padding: EdgeInsets.all(16.r),
                                   decoration: BoxDecoration(
+                                    border: Border.all(
+                                        color: AppColors.borderColor,
+                                        width: 1.5),
                                     color: AppColors.bgColor,
                                     borderRadius: BorderRadius.circular(16.r),
                                   ),
@@ -195,16 +221,47 @@ class _TradeState extends State<Trade> {
                                             leading: Image.asset(
                                                 'assets/icons/trade.png'),
                                             title: Text(
-                                              option,
+                                              option['title'],
                                               style: TextStyle(
                                                 color: Colors.white,
                                                 fontWeight: FontWeight.w400,
                                                 fontSize: 14.sp,
                                               ),
                                             ),
-                                            trailing: const Icon(
-                                                Icons.navigate_next,
-                                                color: Colors.white),
+                                            trailing: Row(
+                                              mainAxisSize: MainAxisSize.min,
+                                              children: [
+                                                if (option['isNew'] == true)
+                                                  Container(
+                                                    padding:
+                                                        EdgeInsets.symmetric(
+                                                            horizontal: 8.w,
+                                                            vertical: 4.h),
+                                                    decoration: BoxDecoration(
+                                                      color: const Color(
+                                                              0xFFDE9B09)
+                                                          .withOpacity(0.08),
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              8.r),
+                                                    ),
+                                                    child: Text(
+                                                      'New',
+                                                      style: TextStyle(
+                                                        color: const Color(
+                                                            0xFFF79009),
+                                                        fontSize: 10.sp,
+                                                        fontWeight:
+                                                            FontWeight.w700,
+                                                      ),
+                                                    ),
+                                                  ),
+                                                SizedBox(width: 8.w),
+                                                const Icon(Icons.navigate_next,
+                                                    color: Colors.white),
+                                              ],
+                                            ),
+                                            onTap: option['onTap'],
                                           ),
                                           if (index != earnOptions.length - 1)
                                             Divider(
