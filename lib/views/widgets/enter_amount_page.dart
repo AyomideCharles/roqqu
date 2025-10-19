@@ -17,8 +17,12 @@ class EnterAmountPage extends StatefulWidget {
 
 class _EnterAmountPageState extends State<EnterAmountPage> {
   final TextEditingController _controller =
-      TextEditingController(text: '100 USD');
-  // bool showKeyboard = false;
+      TextEditingController(text: '0 USD');
+  String getAmountValue() {
+    String text = _controller.text.replaceAll('USD', '').trim();
+    return text;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -143,7 +147,10 @@ class _EnterAmountPageState extends State<EnterAmountPage> {
             CustomButton(
                 text: 'Continue',
                 onPressed: () {
-                  Get.to(() => const ConfirmTransaction());
+                  String amount = getAmountValue();
+                  Get.to(() => ConfirmTransaction(
+                        amount: amount,
+                      ));
                 })
           ],
         ),

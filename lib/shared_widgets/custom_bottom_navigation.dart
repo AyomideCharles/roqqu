@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:roqqu_task/utils/app_colors.dart';
 import 'package:roqqu_task/views/history.dart';
-import 'package:roqqu_task/views/homepage.dart';
+import 'package:roqqu_task/views/homepage/homepage.dart';
 import 'package:roqqu_task/views/profile.dart';
 import 'package:roqqu_task/views/trade/trade.dart';
 import 'package:roqqu_task/views/wallet.dart';

@@ -10,6 +10,12 @@ class AppTextStyles {
     color: AppColors.greyColor,
   );
 
+  static final regularHeading = GoogleFonts.encodeSans(
+    fontSize: 14.sp,
+    fontWeight: FontWeight.w700,
+    color: Colors.white,
+  );
+
   static final header = GoogleFonts.encodeSans(
     fontSize: 24.sp,
     fontWeight: FontWeight.w800,
@@ -36,4 +42,7 @@ class AppTextStyles {
 
   static final tinyWhiteText = GoogleFonts.encodeSans(
       color: Colors.white, fontSize: 12.sp, fontWeight: FontWeight.w700);
+
+  static final keyPadText = GoogleFonts.encodeSans(
+      color: Colors.white, fontSize: 16.sp, fontWeight: FontWeight.w700);
 }

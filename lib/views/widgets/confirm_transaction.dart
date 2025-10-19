@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 import 'package:roqqu_task/shared_widgets/custom_app_bar.dart';
 import 'package:roqqu_task/shared_widgets/custom_button.dart';
 import 'package:roqqu_task/utils/app_colors.dart';
 import 'package:roqqu_task/utils/app_text_styles.dart';
+import 'package:roqqu_task/views/widgets/confirm_transaction_pin.dart';
 
 class ConfirmTransaction extends StatelessWidget {
-  const ConfirmTransaction({super.key});
+  final String amount;
+  const ConfirmTransaction({super.key, required this.amount});
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +43,7 @@ class ConfirmTransaction extends StatelessWidget {
                   height: 5.h,
                 ),
                 Text(
-                  '100 USD',
+                  '$amount USD',
                   style: AppTextStyles.header,
                 ),
                 SizedBox(
@@ -98,9 +101,12 @@ class ConfirmTransaction extends StatelessWidget {
       ),
       bottomNavigationBar: Container(
         padding: const EdgeInsets.all(16),
-        // height: 7.h,
         color: AppColors.bgColor,
-        child: CustomButton(text: 'Confirm  transaction', onPressed: () {}),
+        child: CustomButton(
+            text: 'Confirm  transaction',
+            onPressed: () {
+              Get.to(() => const ConfirmTransactionPin());
+            }),
       ),
     );
   }
