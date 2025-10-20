@@ -39,25 +39,35 @@ class _AllTradesTabState extends State<AllTradesTab>
     return Column(
       children: [
         Container(
+          padding: EdgeInsets.all(6.w),
           decoration: const BoxDecoration(
-            color: AppColors.bgColor,
-            // border: Border.all(color: AppColors.borderColor, width: 1.5),
+            color: AppColors.containerColor,
           ),
-          child: TabBar(
-            controller: _tabController,
-            dividerColor: Colors.transparent,
-            indicatorColor: AppColors.blueColor,
-            indicatorSize: TabBarIndicatorSize.tab,
-            labelColor: Colors.white,
-            unselectedLabelColor: AppColors.greyColor,
-            labelStyle: TextStyle(
-              fontSize: 14.sp,
-              fontWeight: FontWeight.w500,
+          child: Container(
+            height: 45.h,
+            decoration: BoxDecoration(
+              color: AppColors.bgColor,
+              borderRadius: BorderRadius.circular(10.r),
             ),
-            tabs: const [
-              Tab(text: 'Current trades'),
-              Tab(text: 'History'),
-            ],
+            child: TabBar(
+              controller: _tabController,
+              dividerColor: Colors.transparent,
+              indicator: BoxDecoration(
+                color: AppColors.primaryColor,
+                borderRadius: BorderRadius.circular(8.r),
+              ),
+              labelColor: Colors.white,
+              unselectedLabelColor: AppColors.greyColor,
+              indicatorSize: TabBarIndicatorSize.tab,
+              labelStyle: TextStyle(
+                fontSize: 14.sp,
+                fontWeight: FontWeight.w500,
+              ),
+              tabs: const [
+                Tab(text: 'Current trades'),
+                Tab(text: 'History'),
+              ],
+            ),
           ),
         ),
         Expanded(

@@ -61,7 +61,6 @@ class _RiskBottomSheetState extends State<RiskBottomSheet> {
   @override
   void initState() {
     super.initState();
-    // Initialize expansion states to false for all items
     isExpandedList = List.generate(risks.length, (_) => false);
   }
 
@@ -75,7 +74,7 @@ class _RiskBottomSheetState extends State<RiskBottomSheet> {
         mainAxisSize: MainAxisSize.min,
         children: [
           Align(
-              alignment: AlignmentGeometry.centerRight,
+              alignment: Alignment.centerRight,
               child: GestureDetector(
                   onTap: () {
                     Navigator.pop(context);
@@ -98,58 +97,67 @@ class _RiskBottomSheetState extends State<RiskBottomSheet> {
             height: 25.h,
           ),
           Expanded(
-            child: ListView.builder(
-              physics: const BouncingScrollPhysics(),
-              itemCount: risks.length,
-              itemBuilder: (context, index) {
-                final item = risks[index];
-                final isExpanded = isExpandedList[index];
-                return GestureDetector(
-                  onTap: () {
-                    setState(() {
-                      isExpandedList[index] = !isExpanded;
-                    });
-                  },
-                  child: Container(
-                    width: isExpanded ? 220 : 120,
-                    padding: const EdgeInsets.all(16),
-                    decoration: BoxDecoration(
-                      color: AppColors.bgColor,
-                      borderRadius: BorderRadius.circular(12),
-                      // border: Border.all(color: Colors.white12),
-                    ),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(
-                              item['title']!,
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 14.sp,
-                                fontWeight: FontWeight.w700,
+            child: Container(
+              decoration: BoxDecoration(
+                color: AppColors.bgColor,
+                borderRadius: BorderRadius.circular(12),
+              ),
+              padding: const EdgeInsets.all(16),
+              child: ListView.separated(
+                physics: const BouncingScrollPhysics(),
+                itemCount: risks.length,
+                separatorBuilder: (context, index) => const Divider(
+                  color: AppColors.borderColor,
+                  height: 20,
+                  thickness: 1.5,
+                ),
+                itemBuilder: (context, index) {
+                  final item = risks[index];
+                  final isExpanded = isExpandedList[index];
+                  return InkWell(
+                    onTap: () {
+                      setState(() {
+                        isExpandedList[index] = !isExpanded;
+                      });
+                    },
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 12),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Expanded(
+                                child: Text(
+                                  item['title']!,
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 14.sp,
+                                    fontWeight: FontWeight.w700,
+                                  ),
+                                ),
                               ),
-                            ),
-                            Icon(
-                              isExpanded
-                                  ? Icons.keyboard_arrow_up
-                                  : Icons.keyboard_arrow_down,
-                              color: Colors.white,
-                              size: 24,
-                            ),
+                              Icon(
+                                isExpanded
+                                    ? Icons.keyboard_arrow_up
+                                    : Icons.keyboard_arrow_down,
+                                color: Colors.white,
+                                size: 24,
+                              ),
+                            ],
+                          ),
+                          if (isExpanded) ...[
+                            const SizedBox(height: 10),
+                            Text(item['description']!,
+                                style: AppTextStyles.regularText),
                           ],
-                        ),
-                        const SizedBox(height: 10),
-                        if (isExpanded)
-                          Text(item['description']!,
-                              style: AppTextStyles.regularText),
-                      ],
+                        ],
+                      ),
                     ),
-                  ),
-                );
-              },
+                  );
+                },
+              ),
             ),
           ),
           SizedBox(

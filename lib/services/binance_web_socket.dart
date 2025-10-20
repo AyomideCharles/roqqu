@@ -10,7 +10,6 @@ class BinanceService {
   Timer? _reconnectTimer;
   bool _isDisposed = false;
 
-  // Store connection parameters for reconnection
   List<String>? _symbols;
   OnDataCallback? _onData;
   Function(dynamic error)? _onError;

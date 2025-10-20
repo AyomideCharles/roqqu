@@ -105,9 +105,9 @@ class _StayUpdatedState extends State<StayUpdated> {
           effect: const ExpandingDotsEffect(
             activeDotColor: Colors.white,
             dotColor: Colors.grey,
-            dotHeight: 6,
-            dotWidth: 6,
-            expansionFactor: 3,
+            dotHeight: 8,
+            dotWidth: 8,
+            expansionFactor: 1.1,
           ),
         ),
       ],

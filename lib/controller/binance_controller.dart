@@ -1,26 +1,6 @@
 import 'package:get/get.dart';
+import 'package:roqqu_task/models/coin_data_model.dart';
 import 'package:roqqu_task/services/binance_web_socket.dart';
-
-class CoinData {
-  final String symbol;
-  final String name;
-  final String iconPath;
-  final double price;
-  final double change;
-
-  CoinData({
-    required this.symbol,
-    required this.name,
-    required this.iconPath,
-    required this.price,
-    required this.change,
-  });
-
-  bool get isPositive => change >= 0;
-  String get formattedPrice => '\$${price.toStringAsFixed(2)}';
-  String get formattedChange =>
-      '${isPositive ? '+' : ''}${change.toStringAsFixed(2)}%';
-}
 
 class BinanceController extends GetxController {
   final BinanceService _binanceService = BinanceService();
@@ -31,10 +11,10 @@ class BinanceController extends GetxController {
 
   final Map<String, Map<String, String>> _coinInfo = {
     'BTCUSDT': {'name': 'Bitcoin', 'icon': 'assets/icons/bitcoin.png'},
-    'ETHUSDT': {'name': 'Ethereum', 'icon': 'assets/icons/ethereum.png'},
-    'BNBUSDT': {'name': 'Binance Coin', 'icon': 'assets/icons/bnb.png'},
-    'ADAUSDT': {'name': 'Cardano', 'icon': 'assets/icons/cardano.png'},
-    'SOLUSDT': {'name': 'Solana', 'icon': 'assets/icons/solana.png'},
+    'ETHUSDT': {'name': 'Ethereum', 'icon': 'assets/images/eth.png'},
+    'BNBUSDT': {'name': 'Binance Coin', 'icon': 'assets/images/bnb.png'},
+    'ADAUSDT': {'name': 'Cardano', 'icon': 'assets/images/ada.png'},
+    'SOLUSDT': {'name': 'Solana', 'icon': 'assets/images/sol.png'},
   };
 
   final List<String> symbols = [

@@ -182,6 +182,10 @@ class ChartTab extends StatelessWidget {
                       )
                     ],
                   ),
+                  SizedBox(
+                    height: 20.h,
+                  ),
+                  const TradingChartWidget()
                 ],
               ),
             )

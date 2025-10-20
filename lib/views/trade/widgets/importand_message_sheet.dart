@@ -75,7 +75,7 @@ class _ImportandMessageSheetState extends State<ImportandMessageSheet> {
                 isChecked = value ?? false;
               });
             },
-            activeColor: Colors.orange,
+            activeColor: AppColors.blueColor,
             checkColor: Colors.white,
             controlAffinity: ListTileControlAffinity.leading,
           ),
@@ -84,6 +84,7 @@ class _ImportandMessageSheetState extends State<ImportandMessageSheet> {
           ),
           CustomButton(
               text: 'Proceed to copy trade',
+              isDisabled: !isChecked,
               onPressed: () {
                 Navigator.pop(context);
                 Support.showCustomBottomSheet(

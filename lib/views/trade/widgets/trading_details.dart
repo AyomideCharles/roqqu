@@ -126,8 +126,8 @@ class _TradingDetailsState extends State<TradingDetails>
           ),
           SizedBox(height: 15.h),
           Container(
-            padding: EdgeInsets.all(5.r),
-            height: 84.h,
+            padding: EdgeInsets.all(6.r),
+            // height: 88.h,
             decoration: BoxDecoration(
                 color: AppColors.bgColor,
                 border: Border.all(color: AppColors.borderColor, width: 1.5),
