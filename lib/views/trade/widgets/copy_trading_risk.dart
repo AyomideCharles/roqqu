@@ -5,8 +5,8 @@ import 'package:roqqu_task/shared_widgets/custom_app_bar.dart';
 import 'package:roqqu_task/shared_widgets/custom_button.dart';
 import 'package:roqqu_task/utils/app_colors.dart';
 import 'package:roqqu_task/utils/app_text_styles.dart';
-import 'package:roqqu_task/views/trade/copy_trading_dashboard.dart';
-import '../widgets/risk_level_card.dart';
+import 'package:roqqu_task/views/trade/widgets/copy_trading_dashboard.dart';
+import 'risk_level_card.dart';
 
 class CopyTradingRisk extends StatefulWidget {
   const CopyTradingRisk({super.key});

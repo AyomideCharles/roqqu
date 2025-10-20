@@ -4,10 +4,10 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:iconsax_flutter/iconsax_flutter.dart';
 import 'package:roqqu_task/shared_widgets/custom_app_bar.dart';
 import 'package:roqqu_task/utils/app_colors.dart';
-import 'package:roqqu_task/views/trade/all_trades_tab.dart';
-import 'package:roqqu_task/views/trade/chart_tab.dart';
-import 'package:roqqu_task/views/trade/copier_tab.dart';
-import 'package:roqqu_task/views/trade/stats_tab.dart';
+import 'package:roqqu_task/views/trade/widgets/all_trades_tab.dart';
+import 'package:roqqu_task/views/trade/widgets/chart_tab.dart';
+import 'package:roqqu_task/views/trade/widgets/copier_tab.dart';
+import 'package:roqqu_task/views/trade/widgets/stats_tab.dart';
 
 class TradingDetails extends StatefulWidget {
   const TradingDetails({super.key});

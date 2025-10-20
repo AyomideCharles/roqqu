@@ -4,10 +4,12 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String title;
   final List<Widget>? actions;
+  final VoidCallback? onPressed;
   const CustomAppBar({
     super.key,
     required this.title,
     this.actions,
+    this.onPressed,
   });
 
   @override
@@ -16,7 +18,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       centerTitle: true,
       leading: IconButton(
         icon: const Icon(Icons.arrow_back_ios, color: Colors.white),
-        onPressed: () => Navigator.of(context).pop(),
+        onPressed: onPressed ?? () => Navigator.of(context).pop(),
       ),
       title: Text(
         title,

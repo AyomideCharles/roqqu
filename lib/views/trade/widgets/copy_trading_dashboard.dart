@@ -3,15 +3,22 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:iconsax_flutter/iconsax_flutter.dart';
+import 'package:roqqu_task/models/pro_tarder_model.dart';
 import 'package:roqqu_task/shared_widgets/custom_app_bar.dart';
 import 'package:roqqu_task/shared_widgets/dashboard_cards.dart';
 import 'package:roqqu_task/utils/app_colors.dart';
 import 'package:roqqu_task/utils/app_text_styles.dart';
-import 'package:roqqu_task/views/trade/trading_details.dart';
+import 'package:roqqu_task/views/dashboard/dashboard.dart';
+import 'package:roqqu_task/views/trade/widgets/trading_details.dart';
 
-class CopyTradingDashboard extends StatelessWidget {
+class CopyTradingDashboard extends StatefulWidget {
   const CopyTradingDashboard({super.key});
 
+  @override
+  State<CopyTradingDashboard> createState() => _CopyTradingDashboardState();
+}
+
+class _CopyTradingDashboardState extends State<CopyTradingDashboard> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,19 +28,24 @@ class CopyTradingDashboard extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Row(
+            Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                DashboardCard(
-                    title: 'My dashboard',
-                    subtitle: 'View trades',
-                    iconPath: 'assets/icons/Icon.png',
-                    gradientColors: [
-                      Color(0xFFABE2F3),
-                      Color(0xFFBDE4E5),
-                      Color(0xFFEBE9D0),
-                    ]),
-                DashboardCard(
+                GestureDetector(
+                  onTap: () {
+                    Get.to(() => const Dashboard());
+                  },
+                  child: const DashboardCard(
+                      title: 'My dashboard',
+                      subtitle: 'View trades',
+                      iconPath: 'assets/icons/Icon.png',
+                      gradientColors: [
+                        Color(0xFFABE2F3),
+                        Color(0xFFBDE4E5),
+                        Color(0xFFEBE9D0),
+                      ]),
+                ),
+                const DashboardCard(
                     title: 'Become a PRO trader',
                     subtitle: 'Apply Now',
                     iconPath: 'assets/icons/Icon.png',
@@ -59,8 +71,9 @@ class CopyTradingDashboard extends StatelessWidget {
               child: ListView.builder(
                   physics: const BouncingScrollPhysics(),
                   shrinkWrap: true,
-                  itemCount: 3,
+                  itemCount: dummyTraders.length,
                   itemBuilder: (context, index) {
+                    final trader = dummyTraders[index];
                     return GestureDetector(
                       onTap: () {
                         Get.to(() => const TradingDetails());
@@ -89,13 +102,24 @@ class CopyTradingDashboard extends StatelessWidget {
                                         Container(
                                           width: 51.w,
                                           height: 51.h,
-                                          decoration: const BoxDecoration(
+                                          decoration: BoxDecoration(
                                             shape: BoxShape.circle,
-                                            color: Colors.blue,
+                                            color: trader.avatarColor
+                                                .withOpacity(0.14),
+                                            border: Border.all(
+                                              color: trader.avatarColor,
+                                              width: 2,
+                                            ),
                                           ),
-                                          child: const Icon(
-                                            Icons.person,
-                                            color: Colors.white,
+                                          child: Center(
+                                            child: Text(
+                                              trader.initials,
+                                              style: TextStyle(
+                                                color: Colors.white,
+                                                fontSize: 12.sp,
+                                                fontWeight: FontWeight.bold,
+                                              ),
+                                            ),
                                           ),
                                         ),
                                         Positioned(
@@ -105,7 +129,7 @@ class CopyTradingDashboard extends StatelessWidget {
                                                 'assets/icons/group.png')),
                                       ],
                                     ),
-                                    title: Text('Jay isisou',
+                                    title: Text(trader.name,
                                         style: TextStyle(
                                             color: Colors.white,
                                             fontSize: 14.sp,

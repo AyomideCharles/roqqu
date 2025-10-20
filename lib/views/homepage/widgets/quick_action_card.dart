@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:roqqu_task/utils/app_colors.dart';
+import 'package:roqqu_task/utils/app_text_styles.dart';
 
 class QuickActionCard extends StatefulWidget {
   const QuickActionCard({super.key});
@@ -11,6 +12,19 @@ class QuickActionCard extends StatefulWidget {
 
 class _QuickActionCardState extends State<QuickActionCard> {
   bool expanded = false;
+  final List<Map<String, dynamic>> topActions = [
+    {'icon': 'assets/icons/deposit.png', 'label': 'Deposit'},
+    {'icon': 'assets/icons/buy.png', 'label': 'Buy'},
+    {'icon': 'assets/icons/withdraw.png', 'label': 'Withdraw'},
+    {'icon': 'assets/icons/sell.png', 'label': 'Sell'},
+  ];
+
+  final List<Map<String, dynamic>> bottomActions = [
+    {'icon': 'assets/icons/deposit.png', 'label': 'Send'},
+    {'icon': 'assets/icons/buy.png', 'label': 'Receive'},
+    {'icon': 'assets/icons/withdraw.png', 'label': 'Swap'},
+    {'icon': 'assets/icons/sell.png', 'label': 'Transfer'},
+  ];
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -24,30 +38,24 @@ class _QuickActionCardState extends State<QuickActionCard> {
             border: Border.all(color: const Color(0xFF262932)),
             borderRadius: BorderRadius.circular(16.r),
           ),
-          height: expanded ? 180.h : 80.h,
+          height: expanded ? 240.h : 120.h,
           child: SingleChildScrollView(
             physics: const NeverScrollableScrollPhysics(),
             child: Column(
               children: [
-                const Row(
+                Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    CircleAvatar(),
-                    CircleAvatar(),
-                    CircleAvatar(),
-                    CircleAvatar(),
-                  ],
+                  children: topActions.map((e) {
+                    return actionButton(context, e['icon'], e['label']);
+                  }).toList(),
                 ),
                 if (expanded) ...[
-                  SizedBox(height: 20.h),
-                  const Row(
+                  SizedBox(height: 30.h),
+                  Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      CircleAvatar(),
-                      CircleAvatar(),
-                      CircleAvatar(),
-                      CircleAvatar(),
-                    ],
+                    children: bottomActions.map((e) {
+                      return actionButton(context, e['icon'], e['label']);
+                    }).toList(),
                   ),
                 ],
               ],
@@ -80,6 +88,21 @@ class _QuickActionCardState extends State<QuickActionCard> {
               ),
             ),
           ),
+        )
+      ],
+    );
+  }
+
+  Widget actionButton(BuildContext context, String icon, String text) {
+    return Column(
+      children: [
+        Image.asset(icon),
+        SizedBox(
+          height: 8.h,
+        ),
+        Text(
+          text,
+          style: AppTextStyles.tinyText,
         )
       ],
     );

@@ -4,7 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:roqqu_task/utils/app_colors.dart';
 import 'package:roqqu_task/utils/app_text_styles.dart';
-import 'package:roqqu_task/views/trade/copy_trading.dart';
+import 'package:roqqu_task/views/trade/widgets/copy_trading.dart';
 
 class Trade extends StatefulWidget {
   const Trade({super.key});

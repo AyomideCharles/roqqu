@@ -6,7 +6,7 @@ import 'package:roqqu_task/shared_widgets/custom_app_bar.dart';
 import 'package:roqqu_task/shared_widgets/custom_button.dart';
 import 'package:roqqu_task/utils/app_colors.dart';
 import 'package:roqqu_task/utils/app_text_styles.dart';
-import 'package:roqqu_task/views/widgets/confirm_transaction.dart';
+import 'package:roqqu_task/views/trade/widgets/confirm_transaction.dart';
 
 class EnterAmountPage extends StatefulWidget {
   const EnterAmountPage({super.key});

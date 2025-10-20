@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 import 'package:roqqu_task/shared_widgets/custom_button.dart';
 import 'package:roqqu_task/utils/app_colors.dart';
 import 'package:roqqu_task/utils/app_text_styles.dart';
-import 'package:roqqu_task/views/widgets/enter_amount_page.dart';
+import 'package:roqqu_task/views/trade/widgets/enter_amount_page.dart';
 
 class RiskBottomSheet extends StatefulWidget {
   const RiskBottomSheet({super.key});

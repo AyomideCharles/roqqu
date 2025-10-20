@@ -1,5 +1,3 @@
-// ignore_for_file: prefer_const_literals_to_create_immutables
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -8,10 +6,11 @@ import 'package:iconsax_flutter/iconsax_flutter.dart';
 import 'package:roqqu_task/utils/app_colors.dart';
 import 'package:roqqu_task/utils/app_text_styles.dart';
 import 'package:roqqu_task/views/homepage/widgets/copy_tading_card.dart';
+import 'package:roqqu_task/views/homepage/widgets/home_header.dart';
 import 'package:roqqu_task/views/homepage/widgets/listed_coins.dart';
 import 'package:roqqu_task/views/homepage/widgets/stay_updated.dart';
-import 'package:roqqu_task/views/trade/copy_trading.dart';
-import 'package:roqqu_task/views/widgets/quick_action_card.dart';
+import 'package:roqqu_task/views/trade/widgets/copy_trading.dart';
+import 'package:roqqu_task/views/homepage/widgets/quick_action_card.dart';
 
 class Homepage extends StatelessWidget {
   const Homepage({super.key});
@@ -34,25 +33,7 @@ class Homepage extends StatelessWidget {
       child: SafeArea(
         child: Column(
           children: [
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 25.h),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  const Text('Crypto'),
-                  Row(
-                    children: [
-                      Image.asset('assets/icons/search.png'),
-                      SizedBox(width: 15.w),
-                      Image.asset('assets/icons/headphones.png'),
-                      SizedBox(width: 15.w),
-                      Image.asset('assets/icons/notification.png'),
-                      SizedBox(width: 15.w),
-                    ],
-                  )
-                ],
-              ),
-            ),
+            const HomeHeader(),
             Expanded(
               child: Container(
                   width: double.infinity,

@@ -4,14 +4,9 @@ import 'package:roqqu_task/models/pro_tarder_model.dart';
 import 'package:roqqu_task/shared_widgets/trader_tile.dart';
 import 'package:roqqu_task/utils/app_colors.dart';
 
-class DashboardMytradesTab extends StatefulWidget {
-  const DashboardMytradesTab({super.key});
+class CopierTab extends StatelessWidget {
+  const CopierTab({super.key});
 
-  @override
-  State<DashboardMytradesTab> createState() => _DashboardMytradesTabState();
-}
-
-class _DashboardMytradesTabState extends State<DashboardMytradesTab> {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -27,7 +22,7 @@ class _DashboardMytradesTabState extends State<DashboardMytradesTab> {
           children: [
             const TextField(
               decoration: InputDecoration(
-                  hintText: 'Search for PRO traders',
+                  hintText: 'Search for copiers',
                   hintStyle: TextStyle(color: AppColors.greyColor),
                   border: OutlineInputBorder(borderSide: BorderSide.none),
                   filled: true,
@@ -42,7 +37,10 @@ class _DashboardMytradesTabState extends State<DashboardMytradesTab> {
                 shrinkWrap: true,
                 itemBuilder: (context, index) {
                   final trader = dummyTraders[index];
-                  return TraderTile(trader: trader);
+                  return TraderTile(
+                    trader: trader,
+                    showImage: false,
+                  );
                 })
           ],
         ),

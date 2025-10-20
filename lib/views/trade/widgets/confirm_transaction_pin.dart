@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 import 'package:roqqu_task/shared_widgets/custom_app_bar.dart';
 import 'package:roqqu_task/utils/app_colors.dart';
 import 'package:roqqu_task/utils/app_text_styles.dart';
-import 'package:roqqu_task/views/widgets/success_page.dart';
+import 'package:roqqu_task/views/trade/widgets/success_page.dart';
 
 class ConfirmTransactionPin extends StatefulWidget {
   const ConfirmTransactionPin({super.key});

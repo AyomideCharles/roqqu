@@ -5,7 +5,7 @@ import 'package:roqqu_task/shared_widgets/custom_button.dart';
 import 'package:roqqu_task/utils/app_colors.dart';
 import 'package:roqqu_task/utils/app_text_styles.dart';
 import 'package:roqqu_task/utils/support.dart';
-import 'package:roqqu_task/views/widgets/risk_bottom_sheet.dart';
+import 'package:roqqu_task/views/trade/widgets/risk_bottom_sheet.dart';
 
 class ImportandMessageSheet extends StatefulWidget {
   const ImportandMessageSheet({super.key});
