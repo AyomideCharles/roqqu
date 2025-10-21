@@ -11,6 +11,10 @@ The task involves implementing the provided Figma design and integrating it with
 - Real time crypto updates using binance websocket API
 - Accurate design implementation based on the provided Figma file.
 - Smooth transitions and visual feedback
+- Consistent spacing & padding (ScreenUtil for responsive sizing)
+- Clear typography using Google Fonts
+- Smooth UI transitions
+- Pixel-perfect components and fluid scrolling behavior
 
 
 
@@ -22,12 +26,12 @@ The task involves implementing the provided Figma design and integrating it with
 
 # Architecture
 -- lib/
- - controllers  (logic)
- - models   (data models)
- - services  (websocket api connections) 
- - shared widgets (reusable custom widgets)
- - utils (colors, styles, constants)
- - views (ui presentation)
+ - controllers - manage app logic and state(GetX)
+ - models - defines data structure
+ - services - handles api request 
+ - shared widgets - common widgets used across the application
+ - utils - app colors, text styles
+ - views - contains application pages/screens
 
 # Stacks used
 - Dart
