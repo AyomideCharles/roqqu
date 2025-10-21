@@ -5,6 +5,7 @@ The task involves implementing the provided Figma design and integrating it with
 
 # Project Demo
 
+![qemu-system-x86_64_BGUys8rmkw](https://github.com/user-attachments/assets/b715bf64-522c-4338-bc6a-a3b3ded8be58)
 
 # Features 
 - Real time crypto updates using binance websocket API
