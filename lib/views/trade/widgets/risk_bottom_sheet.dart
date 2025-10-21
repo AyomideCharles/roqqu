@@ -68,11 +68,16 @@ class _RiskBottomSheetState extends State<RiskBottomSheet> {
   Widget build(BuildContext context) {
     return Container(
       height: MediaQuery.of(context).size.height * 0.85,
-      padding: EdgeInsets.fromLTRB(16.w, 20.h, 16.w, 20.h),
+      padding: EdgeInsets.fromLTRB(16.w, 10.h, 16.w, 20.h),
       width: double.infinity,
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
+          Container(
+            width: 38.w,
+            height: 5.h,
+            color: AppColors.borderColor,
+          ),
           Align(
               alignment: Alignment.centerRight,
               child: GestureDetector(

@@ -19,11 +19,16 @@ class _ImportandMessageSheetState extends State<ImportandMessageSheet> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.fromLTRB(16.w, 20.h, 16.w, 20.h),
+      padding: EdgeInsets.fromLTRB(16.w, 10.h, 16.w, 20.h),
       width: double.infinity,
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
+          Container(
+            width: 38.w,
+            height: 5.h,
+            color: AppColors.borderColor,
+          ),
           Align(
               alignment: AlignmentGeometry.centerRight,
               child: GestureDetector(
