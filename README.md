@@ -9,7 +9,7 @@ The task involves implementing the provided Figma design and integrating it with
 # Features 
 - Real time crypto updates using binance websocket API
 - Accurate design implementation based on the provided Figma file.
-- 
+- Smooth transitions and visual feedback
 
 
 
@@ -21,12 +21,12 @@ The task involves implementing the provided Figma design and integrating it with
 
 # Architecture
 -- lib/
- - controllers  # logic
- - models   #data models
- - services  #websocket api connections 
- - shared widgets #reusable custom widgets
- - utils # colors, styles, constants
- -views # ui presentation
+ - controllers  (logic)
+ - models   (data models)
+ - services  (websocket api connections) 
+ - shared widgets (reusable custom widgets)
+ - utils (colors, styles, constants)
+ - views (ui presentation)
 
 # Stacks used
 - Dart
